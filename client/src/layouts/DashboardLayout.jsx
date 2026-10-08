@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
 
-function DashboardLayout({ children }) {
+function DashboardLayout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -33,8 +34,7 @@ function DashboardLayout({ children }) {
             </div>
 
             <div className="p-4 text-sm text-slate-400">
-              Mobile navigation will be connected to React Router in the next
-              stages.
+              Mobile navigation will be connected in the next stage.
             </div>
           </div>
         </div>
@@ -44,7 +44,7 @@ function DashboardLayout({ children }) {
         <Topbar onMenuClick={() => setMobileMenuOpen(true)} />
 
         <main className="min-h-[calc(100vh-5rem)] p-4 sm:p-6 lg:p-8">
-          {children}
+          <Outlet />
         </main>
       </div>
     </div>
